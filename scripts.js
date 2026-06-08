@@ -140,6 +140,19 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         const prompt = `<span style="color:#0f0;">mayank@portfolio:~$</span>`;
+        const commandHistory = [];
+        let historyIndex = -1;
+
+        const files = {
+            "about.txt": commands.about,
+            "skills.txt": commands.skills,
+            "experience.txt": commands.experience,
+            "projects.txt": commands.projects,
+            "education.txt": commands.education,
+            "certificates.txt": commands.certificates,
+            "achievements.txt": commands.achievements,
+            "contact.txt": commands.contact
+        };
 
         terminalInput.focus();
 
@@ -148,16 +161,46 @@ document.addEventListener("DOMContentLoaded", () => {
                 const input = terminalInput.value.trim();
                 const lowerInput = input.toLowerCase();
 
+                if (!input) return;
+
+                // Add to history
+                commandHistory.push(input);
+                historyIndex = -1;
+
                 terminalOutput.innerHTML += `<div>${prompt} ${input}</div>`;
 
-                if (lowerInput === "clear") {
+                const parts = lowerInput.split(/\s+/);
+                const cmd = parts[0];
+                const arg = parts.slice(1).join(" ");
+
+                if (cmd === "clear") {
                     terminalOutput.innerHTML = `
                         <div>Welcome to Mayank's Terminal 🖥️</div>
                         <div>Type <span style="color:#0ff;">help</span> to see available commands</div>
-                        <div>You can also calculate things like <span style="color:#0ff;">5 * (3 + 2)</span> or type <span style="color:#0ff;">projects</span> to view my work</div>
+                        <div>You can also calculate things like <span style="color:#0ff;">5 * (3 + 2)</span>, list files with <span style="color:#0ff;">ls</span>, or read files with <span style="color:#0ff;">cat</span>.</div>
                     `;
-                } else if (commands[lowerInput]) {
-                    terminalOutput.innerHTML += `<div>${commands[lowerInput]}</div>`;
+                } else if (cmd === "ls") {
+                    const fileList = Object.keys(files)
+                        .map(f => `<span style="color:#00ff41; margin-right: 1.5rem; display: inline-block;">${f}</span>`)
+                        .join("");
+                    terminalOutput.innerHTML += `<div>${fileList}</div>`;
+                } else if (cmd === "cat") {
+                    if (!arg) {
+                        terminalOutput.innerHTML += `<div style="color:red;">Usage: cat &lt;filename&gt; (e.g. cat skills.txt)</div>`;
+                    } else {
+                        const filename = arg.endsWith(".txt") ? arg : `${arg}.txt`;
+                        if (files[filename]) {
+                            terminalOutput.innerHTML += `<div>${files[filename]}</div>`;
+                        } else {
+                            terminalOutput.innerHTML += `<div style="color:red;">cat: ${arg}: No such file or directory</div>`;
+                        }
+                    }
+                } else if (commands[cmd]) {
+                    terminalOutput.innerHTML += `<div>${commands[cmd]}</div>`;
+                } else if (cmd === "whoami") {
+                    terminalOutput.innerHTML += `<div>mayankraj</div>`;
+                } else if (cmd === "date") {
+                    terminalOutput.innerHTML += `<div>${new Date().toString()}</div>`;
                 } else if (/^[0-9+\-*/%. ()]+$/.test(input)) {
                     try {
                         const result = Function(`return (${input})`)();
@@ -166,11 +209,56 @@ document.addEventListener("DOMContentLoaded", () => {
                         terminalOutput.innerHTML += `<div style="color:red;">⚠️ Invalid math expression</div>`;
                     }
                 } else {
-                    terminalOutput.innerHTML += `<div style="color:red;">❌ Unknown command: <b>${input}</b><br>Type <span style="color:#0ff;">help</span> to see available commands</div>`;
+                    terminalOutput.innerHTML += `<div style="color:red;">❌ bash: ${cmd}: command not found. Type <span style="color:#0ff;">help</span> for instructions.</div>`;
                 }
 
                 terminalInput.value = "";
                 terminalOutput.scrollTop = terminalOutput.scrollHeight;
+            } else if (e.key === "ArrowUp") {
+                e.preventDefault();
+                if (commandHistory.length > 0) {
+                    if (historyIndex === -1) {
+                        historyIndex = commandHistory.length - 1;
+                    } else if (historyIndex > 0) {
+                        historyIndex--;
+                    }
+                    terminalInput.value = commandHistory[historyIndex];
+                }
+            } else if (e.key === "ArrowDown") {
+                e.preventDefault();
+                if (historyIndex !== -1) {
+                    if (historyIndex < commandHistory.length - 1) {
+                        historyIndex++;
+                        terminalInput.value = commandHistory[historyIndex];
+                    } else {
+                        historyIndex = -1;
+                        terminalInput.value = "";
+                    }
+                }
+            } else if (e.key === "Tab") {
+                e.preventDefault();
+                const currentVal = terminalInput.value.trim();
+                if (!currentVal) return;
+
+                const parts = currentVal.split(/\s+/);
+                const wordToComplete = parts[parts.length - 1].toLowerCase();
+
+                const isCatArg = parts.length > 1 && parts[0].toLowerCase() === "cat";
+                
+                const candidates = isCatArg 
+                    ? Object.keys(files) 
+                    : ["help", "about", "skills", "experience", "projects", "education", "certificates", "achievements", "contact", "clear", "ls", "cat", "whoami", "date"];
+
+                const matches = candidates.filter(c => c.toLowerCase().startsWith(wordToComplete));
+
+                if (matches.length === 1) {
+                    parts[parts.length - 1] = matches[0];
+                    terminalInput.value = parts.join(" ");
+                } else if (matches.length > 1) {
+                    terminalOutput.innerHTML += `<div>${prompt} ${currentVal}</div>`;
+                    terminalOutput.innerHTML += `<div style="color: #888; font-style: italic;">${matches.join("  ")}</div>`;
+                    terminalOutput.scrollTop = terminalOutput.scrollHeight;
+                }
             }
         });
 

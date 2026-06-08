@@ -347,17 +347,49 @@ body {
     text-shadow: 0 0 5px rgba(0, 255, 65, 0.3);
 }
 
-/* Interactive terminal input overrides */
+/* Interactive terminal simulation styles */
+.terminal-header-title {
+    color: #888;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9rem;
+    margin-left: auto;
+}
+
+.terminal-output {
+    padding: 1.5rem;
+    font-family: 'Fira Code', monospace;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #00ff00;
+    background-color: rgba(5, 5, 5, 0.9);
+    height: 300px;
+    overflow-y: auto;
+}
+
+.terminal-input-line {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    background-color: rgba(0, 0, 0, 0.95);
+    border-top: 1px solid rgba(0, 255, 65, 0.25);
+}
+
+.terminal-prompt-prefix {
+    color: var(--primary-green);
+    font-family: 'Fira Code', monospace;
+    font-weight: bold;
+    margin-right: 0.75rem;
+    white-space: nowrap;
+}
+
 #terminal-input {
-    width: 100%;
-    padding: 1rem;
+    flex: 1;
     border: none;
-    background-color: #000;
+    background: transparent;
     color: #00ff00;
     font-size: 1.05rem;
-    border-top: 1px solid rgba(0, 255, 65, 0.25);
-    outline: none;
     font-family: 'Fira Code', monospace;
+    outline: none;
 }
 
 #terminal-input::placeholder {

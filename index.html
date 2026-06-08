@@ -50,41 +50,29 @@
     <div class="container">
 
         <section class="section" id="terminal" style="margin-top: 4rem;">
-            <h2 class="section-title" style="color: #00ff00; font-size: 1.8rem; margin-bottom: 1rem;">Interactive
-                Terminal</h2>
+            <h2 class="section-title" style="color: #00ff00; font-size: 1.8rem; margin-bottom: 1rem;">Interactive Terminal</h2>
 
-            <div class="terminal-window"
-                style="background-color: #000; border: 1px solid #0f0; border-radius: 6px; overflow: hidden;">
-
+            <div class="terminal-window">
                 <!-- Header -->
-                <div class="terminal-header"
-                    style="display: flex; align-items: center; padding: 0.5rem 1rem; background-color: #111;">
-                    <div class="terminal-dot dot-red"
-                        style="width: 12px; height: 12px; background-color: #ff5f56; border-radius: 50%; margin-right: 8px;">
-                    </div>
-                    <div class="terminal-dot dot-yellow"
-                        style="width: 12px; height: 12px; background-color: #ffbd2e; border-radius: 50%; margin-right: 8px;">
-                    </div>
-                    <div class="terminal-dot dot-green"
-                        style="width: 12px; height: 12px; background-color: #27c93f; border-radius: 50%; margin-right: 12px;">
-                    </div>
-                    <span style="color: #888; font-family: monospace;">mayank@portfolio:~$</span>
+                <div class="terminal-header">
+                    <div class="terminal-dot dot-red"></div>
+                    <div class="terminal-dot dot-yellow"></div>
+                    <div class="terminal-dot dot-green"></div>
+                    <span class="terminal-header-title">mayank@portfolio:~$</span>
                 </div>
 
                 <!-- Output -->
-
-                <div id="terminal-output"
-                    style="padding: 1rem; font-family: monospace; font-size: 1.1rem; line-height: 1.6; color: #00ff00; background-color: #111; height: 240px; overflow-y: auto;">
+                <div id="terminal-output" class="terminal-output">
                     <div>Welcome to Mayank's Terminal 🖥️</div>
                     <div>Type <span style="color:#0ff;">help</span> to see available commands</div>
-                    <div>You can also calculate things like <span style="color:#0ff;">5 * (3 + 2)</span> or type <span
-                            style="color:#0ff;">projects</span> to view my work</div>
-                    <!-- <label>mayank@portfolio:~$</label> -->
+                    <div>You can also calculate things like <span style="color:#0ff;">5 * (3 + 2)</span>, list files with <span style="color:#0ff;">ls</span>, or read files with <span style="color:#0ff;">cat</span>.</div>
                 </div>
 
-                <!-- Input -->
-                <input id="terminal-input" type="text" placeholder="Type a command..." autocomplete="off"
-                    style="width: 100%; padding: 1rem; border: none; border-top: 1px solid #222; background-color: #000; color: #00ff00; font-size: 1.1rem; font-family: monospace; outline: none;" />
+                <!-- Input Line -->
+                <div class="terminal-input-line">
+                    <span class="terminal-prompt-prefix">mayank@portfolio:~$</span>
+                    <input id="terminal-input" type="text" placeholder="Type a command..." autocomplete="off" />
+                </div>
             </div>
         </section>
 
