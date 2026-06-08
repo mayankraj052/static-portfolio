@@ -10,7 +10,7 @@
 <!-- <script src = "scripts.js"></script> -->
 
 <body>
-    <div class="matrix-bg" id="matrixBg"></div>
+    <canvas class="matrix-bg" id="matrixBg"></canvas>
 
     <nav class="nav">
         <div class="nav-container">
@@ -21,9 +21,28 @@
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#achievements">Achievements</a></li>
                 <li><a href="#certificates">Certificates</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="./Mayank_Raj.pdf" class="download-btn" download target="_blank">Resume</a></li>
+            </ul>
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Menu">
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+            </button>
+        </div>
+        <div class="mobile-menu" id="mobile-menu">
+            <ul class="mobile-nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#certificates">Certificates</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="./Mayank_Raj.pdf" class="mobile-download-btn" download target="_blank">Resume</a></li>
             </ul>
         </div>
     </nav>
@@ -79,14 +98,21 @@
                         <div class="terminal-dot dot-red"></div>
                         <div class="terminal-dot dot-yellow"></div>
                         <div class="terminal-dot dot-green"></div>
-                        <span style="margin-left: 1rem; color: #666;">Home</span>
+                        <span style="margin-left: 1rem; color: #666;">whoami.sh</span>
                     </div>
-                    <div class="terminal-content">
-                        <div class="typing-text">$ whoami</div>
-                        <br>
-                        <h1>Mayank Raj</h1>
-                        <p>Full Stack Developer | AI/ML | Problem Solver</p>
-                        <div class="cta-buttons">
+                    <div class="terminal-content" style="text-align: left;">
+                        <div class="terminal-line"><span class="terminal-prompt">mayank@portfolio:~$</span> whoami</div>
+                        <div class="terminal-response">mayankraj</div>
+                        <div class="terminal-line"><span class="terminal-prompt">mayank@portfolio:~$</span> cat summary.txt</div>
+                        <div class="terminal-response">
+                            Detail-oriented Computer Science undergraduate (CGPA: 8.9) with strong technical foundations in Linux/Windows administration, cloud platforms (AWS, Azure), networking, and application deployment. Experienced in diagnosing and resolving system-level issues through hands-on internship and project work involving server configuration, Docker containerisation, Nginx setup, and CI/CD pipelines. Seeking an IT Support / Technical Support Engineer or Machine Learning Engineer role to apply my infrastructure, model deployment, and troubleshooting skills in a help-desk, systems, or ML environment.
+                        </div>
+                        <div class="terminal-line"><span class="terminal-prompt">mayank@portfolio:~$</span> ./display_hero.sh</div>
+                        <div class="terminal-response">
+                            <h1 class="hero-name">Mayank Raj</h1>
+                            <p class="hero-subtitle">Systems & ML Engineer | Cloud & DevOps | Full Stack Developer</p>
+                        </div>
+                        <div class="cta-buttons" style="margin-top: 2rem;">
                             <a href="#projects" class="btn">View Projects</a>
                             <a href="#contact" class="btn">Get In Touch</a>
                             <a href="./Mayank_Raj.pdf" class="btn" download target="_blank">Download Resume</a>
@@ -109,34 +135,29 @@
                 <div class="terminal-content">
                     <div class="timeline">
                         <div class="timeline-item">
-                            <div class="timeline-date">2022 - Present</div>
-                            <div class="timeline-title">Bachelor of Technology in Computer Science and Engineering</div>
-                            <div class="timeline-company">University of Engineering and Management, Jaipur</div>
+                            <div class="timeline-date">Jul 2022 – May 2026 (Expected)</div>
+                            <div class="timeline-title">B.Tech in Computer Science and Engineering</div>
+                            <div class="timeline-company">University of Engineering and Management, Jaipur, Rajasthan</div>
                             <p>
-                                Achieved a CGPA of 8.9 (till date). Completed core coursework including Data Structures,
-                                Algorithm Analysis, Software Methodology, Database Management Systems, Machine Learning,
-                                and Computer Networks.
+                                CGPA: 8.9. Strong technical foundations in Computer Science, algorithms, database management systems, network routing, and server administration.
                             </p>
                         </div>
                         <div class="timeline-item">
-                            <div class="timeline-date">2020 - 2022</div>
-                            <div class="timeline-title">Class XII</div>
-                            <div class="timeline-company">Bihar School Examination Board, Bhagalpur</div>
+                            <div class="timeline-date">May 2020 - Feb 2022</div>
+                            <div class="timeline-title">Class XII (Intermediate)</div>
+                            <div class="timeline-company">Bihar School Examination Board, Bhagalpur, Bihar</div>
                             <p>
-                                Scored 72%. Focused on Mathematics and Computer Science. Took part in programming
-                                activities and organized tech-related events in school.
+                                Percentage: 72%. Focused on Mathematics, Physics, Chemistry, and Computer Science.
                             </p>
                         </div>
-
                         <div class="timeline-item">
-                            <div class="timeline-date">2019 - 2020</div>
-                            <div class="timeline-title">Class X</div>
-                            <div class="timeline-company">Bihar School Examination Board, Bhagalpur</div>
+                            <div class="timeline-date">Mar 2019 - Feb 2020</div>
+                            <div class="timeline-title">Class X (Matriculation)</div>
+                            <div class="timeline-company">Bihar School Examination Board, Bhagalpur, Bihar</div>
                             <p>
-                                Scored 82.3%. Built a strong foundation in Science and Computer Applications.
+                                Percentage: 82.3%. Built strong fundamental concepts in core sciences and general subjects.
                             </p>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -154,51 +175,73 @@
                 </div>
                 <div class="terminal-content">
                     <div class="skills-grid">
+                        
+                        <!-- Card 1: Operating Systems -->
                         <div class="skill-card">
-                            <h3>Frontend Development</h3>
-                            <div>HTML/CSS</div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="--skill-width: 90%; width: 90%;"></div>
-                            </div>
-                            <div>JavaScript</div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="--skill-width: 85%; width: 85%;"></div>
-                            </div>
-                            <div>React.js</div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="--skill-width: 80%; width: 80%;"></div>
-                            </div>
+                            <h3>Operating Systems</h3>
+                            <div class="skill-name">Linux (Ubuntu)</div>
+                            <div class="skill-bar-terminal">[█████████░] 90%</div>
+                            <div class="skill-name">Windows OS</div>
+                            <div class="skill-bar-terminal">[████████░░] 80%</div>
+                            <div class="skill-name">Bash Scripting</div>
+                            <div class="skill-bar-terminal">[████████░░] 80%</div>
                         </div>
+
+                        <!-- Card 2: Networking & Servers -->
                         <div class="skill-card">
-                            <h3>Backend Development</h3>
-                            <div>Node.js</div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="--skill-width: 85%; width: 85%;"></div>
-                            </div>
-                            <div>Python</div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="--skill-width: 80%; width: 80%;"></div>
-                            </div>
-                            <div>MongoDB</div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="--skill-width: 75%; width: 75%;"></div>
-                            </div>
+                            <h3>Networking & Servers</h3>
+                            <div class="skill-name">Nginx (Reverse Proxy/LB)</div>
+                            <div class="skill-bar-terminal">[████████░░] 80%</div>
+                            <div class="skill-name">DNS Configuration</div>
+                            <div class="skill-bar-terminal">[███████░░░] 70%</div>
+                            <div class="skill-name">HTTP/HTTPS & REST APIs</div>
+                            <div class="skill-bar-terminal">[█████████░] 90%</div>
                         </div>
+
+                        <!-- Card 3: Cloud Platforms -->
                         <div class="skill-card">
-                            <h3>Tools & Technologies</h3>
-                            <div>Git/GitHub</div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="--skill-width: 90%; width: 90%;"></div>
-                            </div>
-                            <div>Docker</div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="--skill-width: 70%; width: 70%;"></div>
-                            </div>
-                            <div>AWS</div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="--skill-width: 65%; width: 65%;"></div>
-                            </div>
+                            <h3>Cloud Platforms</h3>
+                            <div class="skill-name">AWS (EC2, S3)</div>
+                            <div class="skill-bar-terminal">[████████░░] 80%</div>
+                            <div class="skill-name">Microsoft Azure</div>
+                            <div class="skill-bar-terminal">[███████░░░] 75%</div>
+                            <div class="skill-name">Storage & Access Management</div>
+                            <div class="skill-bar-terminal">[████████░░] 80%</div>
                         </div>
+
+                        <!-- Card 4: DevOps & Tools -->
+                        <div class="skill-card">
+                            <h3>DevOps & Tools</h3>
+                            <div class="skill-name">Docker</div>
+                            <div class="skill-bar-terminal">[████████░░] 80%</div>
+                            <div class="skill-name">Git & GitHub</div>
+                            <div class="skill-bar-terminal">[█████████░] 90%</div>
+                            <div class="skill-name">CI/CD Pipelines & SSH</div>
+                            <div class="skill-bar-terminal">[████████░░] 80%</div>
+                        </div>
+
+                        <!-- Card 5: Databases -->
+                        <div class="skill-card">
+                            <h3>Databases</h3>
+                            <div class="skill-name">PostgreSQL</div>
+                            <div class="skill-bar-terminal">[████████░░] 80%</div>
+                            <div class="skill-name">MySQL</div>
+                            <div class="skill-bar-terminal">[████████░░] 80%</div>
+                            <div class="skill-name">Prisma & Supabase</div>
+                            <div class="skill-bar-terminal">[█████████░] 90%</div>
+                        </div>
+
+                        <!-- Card 6: Programming & Web -->
+                        <div class="skill-card">
+                            <h3>Programming & Scripting</h3>
+                            <div class="skill-name">Python & JavaScript</div>
+                            <div class="skill-bar-terminal">[█████████░] 90%</div>
+                            <div class="skill-name">HTML & CSS</div>
+                            <div class="skill-bar-terminal">[█████████░] 95%</div>
+                            <div class="skill-name">SQL (querying, admin)</div>
+                            <div class="skill-bar-terminal">[████████░░] 80%</div>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -217,16 +260,25 @@
                 <div class="terminal-content">
                     <div class="timeline">
                         <div class="timeline-item">
+                            <div class="timeline-date">Oct 2025 - Dec 2025</div>
+                            <div class="timeline-title">Full Stack Developer Intern</div>
+                            <div class="timeline-company">Provis Technologies Private Limited, Jaipur, India (Office)</div>
+                            <p class="timeline-bullets" style="color: #888;">
+                                • Configured and managed Nginx reverse proxy on Microsoft Azure for a production web application, ensuring reliable uptime and request routing.<br>
+                                • Containerised a multi-service application using Docker, resolving environment inconsistencies and streamlining deployment across dev and production.<br>
+                                • Set up and maintained PostgreSQL database with secure access controls, JWT authentication, and RESTful API integration.<br>
+                                • Debugged and resolved application-level issues related to API failures, authentication errors, and server misconfigurations during deployment.
+                            </p>
+                        </div>
+                        <div class="timeline-item">
                             <div class="timeline-date">Jul 2024 – Sep 2024</div>
                             <div class="timeline-title">AI-ML Intern</div>
                             <div class="timeline-company">EduSkills Foundation (Remote)</div>
-                            <p>
-                                Trained and optimized deep learning models using TensorFlow and PyTorch, achieving a 20%
-                                improvement in model accuracy.
-                                Developed object detection systems and reduced error rates by 25% through advanced
-                                optimization and fine-tuning techniques.
-                                Managed and preprocessed a dataset of over 10,000 images, enhancing model efficiency and
-                                scalability.
+                            <p class="timeline-bullets" style="color: #888;">
+                                • Managed and processed large datasets (10,000+ images) using Python scripts, ensuring data integrity and pipeline reliability.<br>
+                                • Trained and optimized deep learning models using TensorFlow and PyTorch, achieving a 20% improvement in model accuracy.<br>
+                                • Diagnosed and resolved model performance issues through systematic hyperparameter tuning, reducing error rates by 25%.<br>
+                                • Worked in a remote environment using collaborative tools, maintaining clear documentation and communication throughout the project lifecycle.
                             </p>
                         </div>
                     </div>
@@ -239,7 +291,35 @@
             <h2 class="section-title">Projects</h2>
             <div class="projects-grid">
 
-                <!-- Project 1 -->
+                <!-- Project 1: TalentWay -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="terminal-dot dot-red"></div>
+                        <div class="terminal-dot dot-yellow"></div>
+                        <div class="terminal-dot dot-green"></div>
+                        <span style="margin-left: 1rem; color: #00ff00;">talentway.exe</span>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title" style="color: #00ff00;">TalentWay – Interview Platform</h3>
+                        <p style="color: #00ff00;">
+                            Deployed and maintained a multi-service web platform with real-time video, authentication, and in-browser code execution. Managed user access controls and troubleshot WebAssembly runtimes.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Next.js</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">Convex</span>
+                            <span class="tech-tag">Clerk</span>
+                            <span class="tech-tag">Stream SDK</span>
+                            <span class="tech-tag">WASM</span>
+                        </div>
+                        <div class="project-links" style="margin-top: 0.5rem;">
+                            <a href="https://github.com/mayankraj052" target="_blank"
+                                style="color: #00ff00;">View Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: AI Finance System -->
                 <div class="project-card">
                     <div class="project-header">
                         <div class="terminal-dot dot-red"></div>
@@ -248,16 +328,17 @@
                         <span style="margin-left: 1rem; color: #00ff00;">ai_finance.exe</span>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title" style="color: #00ff00;">AI-Powered Finance Management System</h3>
+                        <h3 class="project-title" style="color: #00ff00;">AI-Powered Finance System</h3>
                         <p style="color: #00ff00;">
-                            Built a full-stack app to manage income and expenses with OCR-based AI for receipt
-                            extraction, visualizations, and monthly report automation.
+                            Built a full-stack app to manage income/expenses with OCR receipt extraction. Managed Supabase instances and Prisma database migrations. Configured automated workflows with Inngest and Resend API.
                         </p>
                         <div class="project-tech">
                             <span class="tech-tag">Next.js</span>
-                            <span class="tech-tag">Tailwind CSS</span>
                             <span class="tech-tag">Supabase</span>
+                            <span class="tech-tag">Prisma</span>
                             <span class="tech-tag">Gemini AI</span>
+                            <span class="tech-tag">Inngest</span>
+                            <span class="tech-tag">Resend</span>
                         </div>
                         <div class="project-links" style="margin-top: 0.5rem;">
                             <a href="https://github.com/mayankraj052/AI_Money_Management" target="_blank"
@@ -268,7 +349,7 @@
                     </div>
                 </div>
 
-                <!-- Project 2 -->
+                <!-- Project 3: Diabetes Prediction -->
                 <div class="project-card">
                     <div class="project-header">
                         <div class="terminal-dot dot-red"></div>
@@ -297,7 +378,7 @@
                     </div>
                 </div>
 
-                <!-- Project 3 -->
+                <!-- Project 4: Video Call -->
                 <div class="project-card">
                     <div class="project-header">
                         <div class="terminal-dot dot-red"></div>
@@ -326,9 +407,72 @@
                     </div>
                 </div>
 
+                <!-- Project 5: Spam Detection App -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="terminal-dot dot-red"></div>
+                        <div class="terminal-dot dot-yellow"></div>
+                        <div class="terminal-dot dot-green"></div>
+                        <span style="margin-left: 1rem; color: #00ff00;">spam_detector.exe</span>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title" style="color: #00ff00;">Spam Detection App</h3>
+                        <p style="color: #00ff00;">
+                            Developed a machine learning web app to classify SMS/email spam. Built with Streamlit 1.47.1, Scikit-Learn 1.7.1, Pandas 2.3.1, Numpy 2.3.2, and Joblib 1.5.1. Deployed on Streamlit Cloud.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Streamlit</span>
+                            <span class="tech-tag">Scikit-Learn</span>
+                            <span class="tech-tag">Pandas</span>
+                            <span class="tech-tag">Numpy</span>
+                            <span class="tech-tag">Joblib</span>
+                        </div>
+                        <div class="project-links" style="margin-top: 0.5rem;">
+                            <a href="https://github.com/mayankraj052/SpamdetectionApp" target="_blank"
+                                style="color: #00ff00;">View Code</a> |
+                            <a href="https://sapm-detection-by-mayank.streamlit.app/" target="_blank" style="color: #00ff00;">View
+                                Demo</a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
+
+        <!-- Achievements Section -->
+        <section id="achievements" class="section">
+            <h2 class="section-title">Achievements</h2>
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="terminal-dot dot-red"></div>
+                    <div class="terminal-dot dot-yellow"></div>
+                    <div class="terminal-dot dot-green"></div>
+                    <span style="margin-left: 1rem; color: #666;">achievements.log</span>
+                </div>
+                <div class="terminal-content">
+                    <div class="achievements-list">
+                        <div class="achievement-item">
+                            <span class="achievement-icon">🏆</span>
+                            <div class="achievement-details">
+                                <h3 style="color: #00ff00;">Top 5% DBMS Rank</h3>
+                                <p>Ranked in the Top 5% of learners nationwide in the NPTEL Database Management Systems course by IIT Kharagpur.</p>
+                            </div>
+                        </div>
+                        <div class="achievement-item">
+                            <span class="achievement-icon">📝</span>
+                            <div class="achievement-details">
+                                <h3 style="color: #00ff00;">Published Machine Learning Research Paper</h3>
+                                <p>
+                                    Published a research paper on Machine Learning in the <i>International Journal of Information Engineering and Electronic Business</i> (2026, 2, 192-204). Published Online on April 8, 2026 by MECS Press.<br>
+                                    <b>DOI:</b> <a href="https://doi.org/10.5815/ijieeb.2026.02.12" target="_blank" style="color: var(--primary-green); text-decoration: underline;">10.5815/ijieeb.2026.02.12</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- Certificates Section -->
         <section id="certificates" class="section">
@@ -345,26 +489,42 @@
 
                         <!-- Certificate 1 -->
                         <div class="cert-card">
-                            <h3 style="color: #00ff00;">Database Management System (NPTEL)</h3>
-                            <p style="color: #00ff00;">By IIT Kharagpur (Top 5% Nationwide)</p>
+                            <h3 style="color: #00ff00;">Database Management System</h3>
+                            <p style="color: #00ff00;">By IIT Kharagpur (NPTEL - Top 5% Nationwide)</p>
                             <a href="https://archive.nptel.ac.in/content/noc/NOC24/SEM2/Ecertificates/106/noc24-cs75/Course/NPTEL24CS75S13720013902699652.pdf"
                                 target="_blank" style="color: #00ff00;">View Certificate</a>
                         </div>
 
                         <!-- Certificate 2 -->
                         <div class="cert-card">
-                            <h3 style="color: #00ff00;">Python Programming (NPTEL)</h3>
-                            <p style="color: #00ff00;">By IIT Madras</p>
+                            <h3 style="color: #00ff00;">Python Programming</h3>
+                            <p style="color: #00ff00;">By IIT Madras (NPTEL)</p>
                             <a href="https://archive.nptel.ac.in/content/noc/NOC23/SEM2/Ecertificates/106/noc23-cs108/Course/NPTEL23CS108S53780260120250796.pdf"
                                 target="_blank" style="color: #00ff00;">View Certificate</a>
                         </div>
 
                         <!-- Certificate 3 -->
                         <div class="cert-card">
-                            <h3 style="color: #00ff00;">Data Structures and Algorithms</h3>
+                            <h3 style="color: #00ff00;">Data Structures & Algorithms</h3>
                             <p style="color: #00ff00;">By Infosys Springboard</p>
                             <a href="https://drive.google.com/file/d/1sL6FBVgv3bs-r_pHJfEhspCXcjVWkI0F/view"
                                 target="_blank" style="color: #00ff00;">View Certificate</a>
+                        </div>
+
+                        <!-- Certificate 4 -->
+                        <div class="cert-card">
+                            <h3 style="color: #00ff00;">AWS Cloud Technical Essentials</h3>
+                            <p style="color: #00ff00;">By Amazon Web Services (Coursera)</p>
+                            <a href="https://www.coursera.org/account/accomplishments/verify/AWS-CLOUD-ESSENTIALS"
+                                target="_blank" style="color: #00ff00;">Verify Course</a>
+                        </div>
+
+                        <!-- Certificate 5 -->
+                        <div class="cert-card">
+                            <h3 style="color: #00ff00;">Data Science</h3>
+                            <p style="color: #00ff00;">By IIT Kharagpur (NPTEL)</p>
+                            <a href="https://archive.nptel.ac.in"
+                                target="_blank" style="color: #00ff00;">Verify NPTEL</a>
                         </div>
 
                     </div>
@@ -404,7 +564,7 @@
             </div>
         </section>
         <footer>
-            <p>&copy; 2023 Mayank Raj. All rights reserved.</p>
+            <p>&copy; 2026 Mayank Raj. All rights reserved.</p>
         </footer>
     </div>
     <script src="scripts.js"></script>
